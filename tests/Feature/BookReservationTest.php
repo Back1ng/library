@@ -9,6 +9,7 @@ use Tests\TestCase;
 class BookReservationTest extends TestCase
 {
     use RefreshDatabase;
+
     /** @test  */
     public function testABookCanBeAddedToTheLibrary()
     {
