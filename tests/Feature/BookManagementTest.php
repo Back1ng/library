@@ -25,10 +25,7 @@ class BookManagementTest extends TestCase
     /** @test */
     public function a_title_is_required()
     {
-        $response = $this->post('/books', [
-            'title' => "",
-            'author' => "Victor",
-        ]);
+        $response = $this->post('/books', array_merge($this->data(), ['title' => ""]));
 
         $response->assertSessionHasErrors('title');
     }
@@ -77,10 +74,7 @@ class BookManagementTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $this->post('/books', [
-            'title' => 'Cool Title',
-            'author_id' => 'Victor'
-        ]);
+        $this->post('/books', $this->data());
 
         $book = Book::first();
         $author = Author::first();
