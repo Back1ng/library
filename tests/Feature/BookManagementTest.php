@@ -83,7 +83,7 @@ class BookManagementTest extends TestCase
         $this->assertCount(1, Author::all());
     }
 
-    public function data()
+    private function data()
     {
         return [
             'title' => "Cool Book Title",
