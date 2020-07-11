@@ -58,6 +58,7 @@ class BookManagementTest extends TestCase
         $response->assertRedirect($book->fresh()->path());
     }
 
+    /** @test */
     public function a_book_can_be_deleted()
     {
         $this->post('/books', $this->data());
@@ -71,6 +72,7 @@ class BookManagementTest extends TestCase
         $response->assertRedirect("/books");
     }
 
+    /** @test */
     public function a_new_author_is_automatically_added()
     {
         $this->withoutExceptionHandling();
