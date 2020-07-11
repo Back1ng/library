@@ -10,7 +10,8 @@ class AuthorTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testOnlyNameIsRequiredToCreateAnAuthor()
+    /** @test */
+    public function only_name_is_required_to_create_an_author()
     {
         Author::firstOrCreate([
             'name' => 'John Doe'

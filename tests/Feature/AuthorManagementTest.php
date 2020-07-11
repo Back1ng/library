@@ -12,7 +12,8 @@ class AuthorManagementTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testAnAuthorCanBeCreated()
+    /** @test */
+    public function an_author_can_be_created()
     {
         $this->post('/author', [
             'name' => 'Author name',

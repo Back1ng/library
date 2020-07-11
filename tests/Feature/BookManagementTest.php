@@ -12,7 +12,7 @@ class BookManagementTest extends TestCase
     use RefreshDatabase;
 
     /** @test  */
-    public function testABookCanBeAddedToTheLibrary()
+    public function a_book_can_be_added_to_the_library()
     {
         $response = $this->post('/books', $this->data());
 
@@ -23,7 +23,7 @@ class BookManagementTest extends TestCase
     }
 
     /** @test */
-    public function testATitleIsRequired()
+    public function a_title_is_required()
     {
         $response = $this->post('/books', [
             'title' => "",
@@ -34,7 +34,7 @@ class BookManagementTest extends TestCase
     }
 
     /** @test */
-    public function testAAuthorIsRequired()
+    public function a_author_is_required()
     {
         $response = $this->post('/books', array_merge($this->data(), ['author_id' => '']));
 
@@ -42,7 +42,7 @@ class BookManagementTest extends TestCase
     }
 
     /** @test */
-    public function testABookCanBeUpdated()
+    public function a_book_can_be_updated()
     {
         $this->post('/books', $this->data());
 
@@ -58,7 +58,7 @@ class BookManagementTest extends TestCase
         $response->assertRedirect($book->fresh()->path());
     }
 
-    public function testABookCanBeDeleted()
+    public function a_book_can_be_deleted()
     {
         $this->post('/books', $this->data());
 
@@ -71,7 +71,7 @@ class BookManagementTest extends TestCase
         $response->assertRedirect("/books");
     }
 
-    public function testANewAuthorIsAutomaticallyAdded()
+    public function a_new_author_is_automatically_added()
     {
         $this->withoutExceptionHandling();
 
